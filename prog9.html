@@ -1,51 +1,38 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
- <title>Scrolling Text</title>
- <style>
- #scrollingText {
- white-space: nowrap;
- overflow: hidden;
- width: 100%;
- background-color: #f0f0f0;
- }
- #scrollingText p {
- display: inline-block;
- margin: 0;
- padding: 10px;
- font-size: 20px;
- }
- </style>
+    <title>Scrolling Text</title>
+    <style>
+        #startButton {
+            size: 10px;
+            font-size: 20px;
+            width: 100px;
+            background-color: blanchedalmond;
+        }
+        #scrollingText {
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+            animation: scroll 10s linear infinite paused;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
 </head>
 <body>
- <div id="scrollingText">
- <p id="textToScroll">This is scrolling text. </p>
- </div>
- <button id="startButton">Start Scrolling</button>
- <button id="stopButton">Stop Scrolling</button>
- <script>
- let scrollInterval;
- let currentPosition = 0;
- const speed = 10; // Adjust the speed as needed (higher value for faster scrolling)
- function startScrolling() {
- clearInterval(scrollInterval);
- currentPosition = 0;
- const textToScroll = document.getElementById('textToScroll');
- textToScroll.style.transform = `translateX(${currentPosition}px)`;
- scrollInterval = setInterval(() => {
- currentPosition += speed;
- textToScroll.style.transform = `translateX(${currentPosition}px)`;
- if (currentPosition >= textToScroll.clientWidth) {
- currentPosition = -textToScroll.clientWidth;
- }
- }, 50); // Adjust the delay as needed (lower value for faster scrolling)
- }
- function stopScrolling() {
- clearInterval(scrollInterval);
- }
- document.getElementById('startButton').addEventListener('click', startScrolling);
- document.getElementById('stopButton').addEventListener('click', stopScrolling);
- </script>
+    <button id="startButton" onclick="startScrolling()">Start</button>
+    <div id="scrollingText">
+        <h1>This is some scrolling text that moves from right to left with a small delay.</h1>
+    </div>
+
+    <script>
+        function startScrolling() {
+            const scrollingText = document.getElementById('scrollingText');
+            scrollingText.style.animationPlayState = 'running';
+        }
+    </script>
 </body>
 </html>
