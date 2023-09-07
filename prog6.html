@@ -1,28 +1,29 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Travel Experience</title>
-    <style>
-        li {
-            display: inline; 
-            border: 2px double black; 
-            list-style-type: none; 
-            margin: 5px;
-            background-image: url('image1.jpg');
-            padding: 10px 20px 10px 20px;
-        }
-        ul {
-            list-style-image: url('image1.jpg'); 
-            padding-left: 0;
-        }
-    </style>
+ <style>
+ .c1{
+ display: inline;
+ border: medium double black;
+ list-style-type: none;
+ margin: 5px;
+ padding: 10px 20px 10px 20px;
+ }
+ li::marker {
+ content: url(img.png);
+ }
+ </style>
 </head>
 <body>
-            <h2>Highlights</h2>
-            <ul>
-                <li>Exploring Nature</li>
-                <li>Cultural Experiences</li>
-                <li>Delicious Local Cuisine</li>
-                <li>Adventurous Activities</li>
-            </ul>
+ <ul>
+ <li class = "c1"> Item 1</li>
+ <li class = "c1"> Item 2</li>
+ <li class = "c1"> Item 3</li>
+ </ul>
+ <ul>
+    <li>item1</li>
+    <li>item2</li>
+    <li>item3</li>
+ </ul>
 </body>
 </html>
