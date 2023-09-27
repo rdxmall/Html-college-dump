@@ -1,38 +1,19 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <title>Scrolling Text</title>
-    <style>
-        #startButton {
-            size: 10px;
-            font-size: 20px;
-            width: 100px;
-            background-color: blanchedalmond;
-        }
-        #scrollingText {
-            white-space: nowrap;
-            overflow: hidden;
-            width: 100%;
-            animation: scroll 10s linear infinite paused;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-    </style>
+<title>HTML marquee start/stop button</title>
 </head>
 <body>
-    <button id="startButton" onclick="startScrolling()">Start</button>
-    <div id="scrollingText">
-        <h1>This is some scrolling text that moves from right to left with a small delay.</h1>
-    </div>
-
-    <script>
-        function startScrolling() {
-            const scrollingText = document.getElementById('scrollingText');
-            scrollingText.style.animationPlayState = 'running';
-        }
-    </script>
+<marquee id="mark" direction="right">hi there</marquee> 
+<input type="button" id="start" value="start">
+<input type="button" id="stop" value="stop">
+<script>
+let mark= document.getElementById("mark");
+let start = document.getElementById("start");
+let stop = document.getElementById("stop"); 
+stop.onclick= stopMark;
+start.onclick =startMark;
+function stopMark(){ mark.stop();}
+function startMark() {mark.start();}
+</script>
 </body>
 </html>
